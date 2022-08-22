@@ -1,0 +1,12 @@
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 4%;
+}
+.box-line{
+    border: 2px solid black;
+    margin: 10px;
+    box-shadow: 10px 10px grey;
+    border-radius: 10px;
+}
