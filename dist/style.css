@@ -1,5 +1,8 @@
+*{
+    font-family:cursive
+}
 header{
-    background-color: black;
+    background: linear-gradient(#e66465, #9198e5);
     color: white;
     text-align: center;
     padding: 4%;
@@ -9,4 +12,7 @@ header{
     margin: 10px;
     box-shadow: 10px 10px grey;
     border-radius: 10px;
+}
+.card{
+    background-color: #9198e5;
 }

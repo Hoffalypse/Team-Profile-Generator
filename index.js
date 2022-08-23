@@ -85,7 +85,7 @@ const startApp = () => {
     .then((answers) => {
         const teamMember = new Manager (answers.name, answers.id, answers.email, answers.office)
         const fillManager = inputManager(answers.name, answers.id, answers.email, answers.office);
-        const beginHTML =  fs.writeFile('Created.html', fillManager, function(err){
+        const beginHTML =  fs.writeFile('./dist/Created.html', fillManager, function(err){
             if (err) {
                 console.log('Manager does not work')
             }
@@ -97,7 +97,7 @@ const startApp = () => {
 const makeChoice = () => {
     inquirer.prompt(addAnother)
     .then((answers) => {
-            console.log(answers);
+            
         if (answers.job === 'Intern'){
             internData();
         }
@@ -108,7 +108,7 @@ const makeChoice = () => {
 
         else {
             const fillInfo = finishHTML();
-            fs.appendFile('Created.html',fillInfo, function (err){
+            fs.appendFile('./dist/Created.html',fillInfo, function (err){
               if (err) {
                   console.log('intern does not work')
               }
@@ -122,7 +122,7 @@ const makeChoice = () => {
     .then((answers) => {
     const teamMember = new Intern (answers.name, answers.id, answers.email, answers.school)
     const fillIntern = inputIntern(answers.name, answers.id, answers.email, answers.school);
-    const insertHTML =  fs.appendFile('Created.html', fillIntern, function(err){
+    const insertHTML =  fs.appendFile('./dist/Created.html', fillIntern, function(err){
         if (err) {
             console.log('Manager does not work')
         }
@@ -136,9 +136,9 @@ const makeChoice = () => {
         .then((answers) => {
         const teamMember = new Engineer (answers.name, answers.id, answers.email, answers.git)
         const fillEngineer = inputEngineer(answers.name, answers.id, answers.email, answers.git);
-        const insertHTML =  fs.appendFile('Created.html', fillEngineer, function(err){
+        const insertHTML =  fs.appendFile('./dist/Created.html', fillEngineer, function(err){
             if (err) {
-                console.log('Manager does not work')
+                console.log('Engineer does not work')
             }
                 makeChoice()
         })
@@ -154,32 +154,34 @@ const makeChoice = () => {
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Staffing</title>
               <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-              <link rel="stylesheet" href="./src/style.css" />
+              <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+              <link rel="stylesheet" href="./style.css" />
           </head>
           <Header>
-              <h1> Bryan's Staff</h1>
+              <h1> <i class="fa-solid fa-people-group"></i>Worlds Best Staff<i class="fa-solid fa-people-group"></i></h1>
           </Header>
           <body>
               <div class="container text-center">
                   <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 col-sm-12 col-md-6">
                       <div class="card box-line" style="width: 18rem;">
                           <div class="card-body">
                           <h5 class="card-title">${name}</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+                          <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-person"></i>  Manager</h6>
                           <p class="card-text">Employee ID: ${id}</p>
-                          <a href="#" class="card-link">Email: ${email}</a>
-                          <p href="#" class="card-link">Office Number ${office}</p>
+                          <a href="mailto:${email}" class="card-link">Email: ${email}</a>
+                          <p class="card-link">Office Number ${office}</p>
                           </div>
                       </div>
                     </div>`
         }
         const inputEngineer = (name, id, email, git) => {
             return `
-            <div class="card box-line" style="width: 18rem;">
+                  <div class="col-4 col-sm-12 col-md-6">
+                    <div class="card box-line" style="width: 18rem;">
                         <div class="card-body">
                         <h5 class="card-title">${name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-gear"></i> Engineer</h6>
                         <p class="card-text">Employee ID: ${id}</p>
                         <a href="mailto:${email}" class="card-link">Email: ${email}</a>
                         <a href="https://github.com/${git}" class="card-link">GitHub: ${git}</a>
@@ -189,10 +191,11 @@ const makeChoice = () => {
         }
         const inputIntern = (name, id, email, school) => {
             return `
-            <div class="card box-line" style="width: 18rem;">
+                  <div class="col-4 col-sm-12 col-md-6">
+                    <div class="card box-line" style="width: 18rem;">
                         <div class="card-body">
                         <h5 class="card-title">${name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-graduation-cap"></i> Intern</h6>
                         <p class="card-text">Employee ID: ${id}</p>
                         <a href="mailto:${email}" class="card-link">Email: ${email}</a>
                         <p class="card-link">School: ${school}</p>
@@ -204,7 +207,8 @@ const makeChoice = () => {
             return `    
             </div>
               <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-          </body>
+              <script src="https://kit.fontawesome.com/ce42e41f83.js" crossorigin="anonymous"></script>
+            </body>
           </html>`
         }
 
