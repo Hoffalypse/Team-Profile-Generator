@@ -155,7 +155,27 @@ const makeChoice = () => {
               <title>Staffing</title>
               <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
               <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-              <link rel="stylesheet" href="./style.css" />
+              <style>
+              *{
+                  font-family:cursive
+                }
+                header{
+                    background: linear-gradient(#e66465, #9198e5);
+                    color: white;
+                    text-align: center;
+                    
+                    padding: 4%;
+                }
+                .box-line{
+                    border: 2px solid black;
+                    margin: 10px;
+                    box-shadow: 10px 10px grey;
+                    border-radius: 10px;
+                }
+                .card{
+                    background-color: #9198e5;
+                }
+                </style>
           </head>
           <Header>
               <h1> <i class="fa-solid fa-people-group"></i>Worlds Best Staff<i class="fa-solid fa-people-group"></i></h1>
