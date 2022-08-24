@@ -84,7 +84,7 @@ const startApp = () => {
     inquirer.prompt(questions.Manager)
     .then((answers) => {
         const teamMember = new Manager (answers.name, answers.id, answers.email, answers.office)
-        const fillManager = inputManager(answers.name, answers.id, answers.email, answers.office);
+        const fillManager = inputManager(teamMember);
         const beginHTML =  fs.writeFile('./dist/Created.html', fillManager, function(err){
             if (err) {
                 console.log('Manager does not work')
@@ -121,7 +121,7 @@ const makeChoice = () => {
     inquirer.prompt(questions.Intern)
     .then((answers) => {
     const teamMember = new Intern (answers.name, answers.id, answers.email, answers.school)
-    const fillIntern = inputIntern(answers.name, answers.id, answers.email, answers.school);
+    const fillIntern = inputIntern(teamMember);
     const insertHTML =  fs.appendFile('./dist/Created.html', fillIntern, function(err){
         if (err) {
             console.log('Manager does not work')
@@ -135,7 +135,7 @@ const makeChoice = () => {
         inquirer.prompt(questions.Engineer)
         .then((answers) => {
         const teamMember = new Engineer (answers.name, answers.id, answers.email, answers.git)
-        const fillEngineer = inputEngineer(answers.name, answers.id, answers.email, answers.git);
+        const fillEngineer = Engineer.inputEngineer(teamMember);
         const insertHTML =  fs.appendFile('./dist/Created.html', fillEngineer, function(err){
             if (err) {
                 console.log('Engineer does not work')
@@ -144,7 +144,7 @@ const makeChoice = () => {
         })
         })
     }
-        const inputManager = (name, id, email, office) => {
+        const inputManager = (data) => {
             return `
             <!DOCTYPE html>
           <html lang="en">
@@ -163,42 +163,42 @@ const makeChoice = () => {
           <body>
               <div class="container text-center">
                   <div class="row">
-                    <div class="col-4 col-sm-12 col-md-6">
+                    <div class="col-4 col-sm-12 col-lg-4 col-md-6">
                       <div class="card box-line" style="width: 18rem;">
                           <div class="card-body">
-                          <h5 class="card-title">${name}</h5>
+                          <h5 class="card-title">${data.name}</h5>
                           <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-person"></i>  Manager</h6>
-                          <p class="card-text">Employee ID: ${id}</p>
-                          <a href="mailto:${email}" class="card-link">Email: ${email}</a>
-                          <p class="card-link">Office Number ${office}</p>
+                          <p class="card-text">Employee ID: ${data.id}</p>
+                          <span>Email:</span><a href="mailto:${data.email}" class="card-link"> ${data.email}</a>
+                          <p class="card-link">Office Number ${data.office}</p>
                           </div>
                       </div>
                     </div>`
         }
-        const inputEngineer = (name, id, email, git) => {
+        // const inputEngineer = (data) => {
+        //     return `
+        //           <div class="col-4 col-sm-12 col-lg-4 col-md-6">
+        //             <div class="card box-line" style="width: 18rem;">
+        //                 <div class="card-body">
+        //                 <h5 class="card-title">${data.name}</h5>
+        //                 <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-gear"></i> Engineer</h6>
+        //                 <p class="card-text">Employee ID: ${data.id}</p>
+        //                 <span>Email:</span><a href="mailto:${data.email}" class="card-link"> ${data.email}</a><br>
+        //                 <span>GitHub:</span><a href="https://github.com/${data.git}" class="card-link"> ${data.git}</a>
+        //                 </div>
+        //             </div>
+        //           </div>`
+        // }
+        const inputIntern = (data) => {
             return `
-                  <div class="col-4 col-sm-12 col-md-6">
+                  <div class="col-4 col-sm-12 col-lg-4 col-md-6">
                     <div class="card box-line" style="width: 18rem;">
                         <div class="card-body">
-                        <h5 class="card-title">${name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-gear"></i> Engineer</h6>
-                        <p class="card-text">Employee ID: ${id}</p>
-                        <a href="mailto:${email}" class="card-link">Email: ${email}</a>
-                        <a href="https://github.com/${git}" class="card-link">GitHub: ${git}</a>
-                        </div>
-                    </div>
-                  </div>`
-        }
-        const inputIntern = (name, id, email, school) => {
-            return `
-                  <div class="col-4 col-sm-12 col-md-6">
-                    <div class="card box-line" style="width: 18rem;">
-                        <div class="card-body">
-                        <h5 class="card-title">${name}</h5>
+                        <h5 class="card-title">${data.name}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-graduation-cap"></i> Intern</h6>
-                        <p class="card-text">Employee ID: ${id}</p>
-                        <a href="mailto:${email}" class="card-link">Email: ${email}</a>
-                        <p class="card-link">School: ${school}</p>
+                        <p class="card-text">Employee ID: ${data.id}</p>
+                        <span>Email:</span><a href="mailto:${data.email}" class="card-link"> ${data.email}</a>
+                        <p class="card-link">School: ${data.school}</p>
                         </div>
                     </div>
                   </div>`

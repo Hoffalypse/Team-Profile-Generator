@@ -36,6 +36,7 @@ Here are the steps in order to contribute to this project.
 NOTE: Be sure to merge the latest from `main` before making a pull request!
 
 ## Tests
+To run testing using 'jest' download the dependancies using 'npm i' and inside of the __tests__ folder run 'npm test'.
 
 ## Technologies
 
