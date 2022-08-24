@@ -1,5 +1,5 @@
 # Team Profile Generator
-This is an app that quickly and easily creates a high quality HTML file that generates a webpage showing a manager and their team. 
+This is an app that uses terminal command line to quickly and easily create a high quality HTML file. It generates a webpage showing a manager and their team and hotlink acces to their pertinant infomation like email and GitHub account. 
 
 ## Table of Contents
 - [Installation](#Installation)
@@ -20,8 +20,7 @@ Once the app starts user will be given a series of prompts to fill out. The firs
 
 
 Link to video on Google Drive 
-
-
+https://drive.google.com/file/d/1OkqMc7r1uKdU_BGYWLKXGVPOFfRMSwgm/view?usp=sharing
 
 
 
@@ -39,6 +38,10 @@ NOTE: Be sure to merge the latest from `main` before making a pull request!
 To run testing using 'jest' download the dependancies using 'npm i' and inside of the __tests__ folder run 'npm test'.
 
 ## Technologies
+- JavaScript
+- CSS
+- HTML
+- Node.JS(using Inquirer and Jest 3rd party modules)
 
 ## Questions
 Please refer any questions or problem issues to bhoff1980@gmail.com.

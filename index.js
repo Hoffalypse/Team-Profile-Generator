@@ -135,7 +135,7 @@ const makeChoice = () => {
         inquirer.prompt(questions.Engineer)
         .then((answers) => {
         const teamMember = new Engineer (answers.name, answers.id, answers.email, answers.git)
-        const fillEngineer = Engineer.inputEngineer(teamMember);
+        const fillEngineer = inputEngineer(teamMember);
         const insertHTML =  fs.appendFile('./dist/Created.html', fillEngineer, function(err){
             if (err) {
                 console.log('Engineer does not work')
@@ -175,20 +175,20 @@ const makeChoice = () => {
                       </div>
                     </div>`
         }
-        // const inputEngineer = (data) => {
-        //     return `
-        //           <div class="col-4 col-sm-12 col-lg-4 col-md-6">
-        //             <div class="card box-line" style="width: 18rem;">
-        //                 <div class="card-body">
-        //                 <h5 class="card-title">${data.name}</h5>
-        //                 <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-gear"></i> Engineer</h6>
-        //                 <p class="card-text">Employee ID: ${data.id}</p>
-        //                 <span>Email:</span><a href="mailto:${data.email}" class="card-link"> ${data.email}</a><br>
-        //                 <span>GitHub:</span><a href="https://github.com/${data.git}" class="card-link"> ${data.git}</a>
-        //                 </div>
-        //             </div>
-        //           </div>`
-        // }
+        const inputEngineer = (data) => {
+            return `
+                  <div class="col-4 col-sm-12 col-lg-4 col-md-6">
+                    <div class="card box-line" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">${data.name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-gear"></i> Engineer</h6>
+                        <p class="card-text">Employee ID: ${data.id}</p>
+                        <span>Email:</span><a href="mailto:${data.email}" class="card-link"> ${data.email}</a><br>
+                        <span>GitHub:</span><a href="https://github.com/${data.git}" class="card-link"> ${data.git}</a>
+                        </div>
+                    </div>
+                  </div>`
+        }
         const inputIntern = (data) => {
             return `
                   <div class="col-4 col-sm-12 col-lg-4 col-md-6">
