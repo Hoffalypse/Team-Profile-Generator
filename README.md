@@ -19,6 +19,10 @@ Once the app starts user will be given a series of prompts to fill out. The firs
 
 
 
+https://user-images.githubusercontent.com/106857564/186355597-9c7aa46f-e9f9-4575-9103-0d3ac829a289.mp4
+
+
+
 Link to video on Google Drive 
 https://drive.google.com/file/d/1OkqMc7r1uKdU_BGYWLKXGVPOFfRMSwgm/view?usp=sharing
 
